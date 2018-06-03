@@ -31,7 +31,8 @@ class MoviesController {
     
     func processJSONMovies(json:JSON) -> [MovieModel] {
         var items = [MovieModel]()
-        for (_, JSON) in json {
+        let results = json["results"]
+        for (_, JSON) in results {
             let item = MovieModel(json: JSON)
             items.append(item)
         }
